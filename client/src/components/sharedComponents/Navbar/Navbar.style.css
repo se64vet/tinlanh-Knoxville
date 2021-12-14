@@ -1,0 +1,7 @@
+.navbar .container-fluid {
+    justify-content: center;
+    gap: 2em;
+}
+.bg-dark {
+    --bs-bg-opacity: 0.55;
+}

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petrona:ital@0;1&display=swap');
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: calc(2rem + .9vw) ;
+    line-height: 1.4;
+}
+span {
+    font-size: calc(.7rem + .9vw);
+    font-family: 'Petrona', serif;
+}
+.info{
+    background: rgba(14, 13, 13, 0.534);
+    width: max-content;
+    border-radius: 10px;
+}
+
+.btn{
+    border-radius: 10px;
+}
+.gradient-btn{
+    background: linear-gradient(94.65deg, #F55431 15.59%, #FFAE10 100%);
+}
+
+.more{
+    margin-top: 5em;
+}

@@ -30,7 +30,7 @@ async function retrieveYTData(URI){
 const resetDB = async(arrayOfNewItems) => {
     try {
         await dailyBread.deleteMany();
-        dailyBread.create(arrayOfNewItems)
+        dailyBread.create(arrayOfNewItems);
     } catch (error) {
         console.log(error)
     }

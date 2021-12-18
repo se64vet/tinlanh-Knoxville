@@ -31,32 +31,29 @@ const imgStyle = {
 }
 
 const HomeCarousel = () => {
-    const [activeIndex, setActiveIndex] = useState(1)
+    const [activeIndex, setActiveIndex] = useState(1);
 
     const prevItem = () => {
         activeIndex <=0 ? setActiveIndex(2) : setActiveIndex(prev => prev -1)  
-        console.log(activeIndex);
     }
 
     const nextItem = () => {
         activeIndex >=2 ? setActiveIndex(0) : setActiveIndex(prev => prev +1)
-        console.log(activeIndex);
     }
 
     return (
         <div>
             <Carousel
                 activeIndex={activeIndex}
-                slide={false}
+                slide={true}
                 next={nextItem}
                 previous={prevItem}
                 interval={8000}
-                slide
             >
                 <CarouselControl
                     direction="prev"
                     directionText="Previous"
-                    onClickHandler={prevItem}
+                    onClickHandler={()=> prevItem()}
                 />
 
                 {items.map((item, key)=>(
@@ -68,7 +65,7 @@ const HomeCarousel = () => {
                 <CarouselControl
                     direction="next"
                     directionText="Next"
-                    onClickHandler={nextItem}
+                    onClickHandler={()=> nextItem()}
                 />
             </Carousel>
 

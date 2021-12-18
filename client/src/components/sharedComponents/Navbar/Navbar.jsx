@@ -56,7 +56,9 @@ const CustomNavbar = () => {
                 onClick={()=>{setNavBarToggler(!NavBarToggler)}} 
                 style={navBarTogglerStyle}>
 
-               {NavBarToggler ?  <img src={closeBTN}/> :  <img src={hamBTN} />}
+               {NavBarToggler 
+                ?  <img src={closeBTN} alt='Navigation Button'/> 
+                :  <img src={hamBTN} alt='Navigation Button'/>}
             </div>
             
              

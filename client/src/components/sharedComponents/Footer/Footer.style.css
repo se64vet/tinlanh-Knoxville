@@ -1,0 +1,14 @@
+.footer-infos p{
+    line-height: .5;
+    font-size: .8em;
+}
+.footer-infos h6{
+    font-weight: bold;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 0 5px;
+    font-style: italic;
+}

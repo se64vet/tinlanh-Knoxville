@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const dailyBread = require('../Models/Dailybread')
 
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -32,6 +32,17 @@ router.get('/test', async (req, res)=>{
       error: error.message,
       json: typeof(retrieveYTData)
     })
+  }
+})
+
+router.get('/video', async (req,res)=>{
+  try {
+    await mongoose.connect(process.env.MONGO_URI)
+    await dailyBread.deleteMany({title: "Private video"})
+    const data = await dailyBread.find({}, null, {sort: "-position"})
+    res.status(200).json(data)
+  } catch (error) {
+    console.log(error);
   }
 })
 

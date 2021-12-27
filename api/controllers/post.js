@@ -38,5 +38,11 @@ const updatePost = (req, res) => {
 }
 
 const deletePost = (req, res) => {
-    res.status(200).send('all post')
+    const {_id} = req.params
+    try {
+        const find = post.findByIdAndDelete(_id);
+        res.status(200).send('deleted post ')
+    } catch (error) {
+        console.log(error)
+    }
 }

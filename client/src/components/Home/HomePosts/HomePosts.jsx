@@ -3,8 +3,8 @@ import { Card, CardBody, CardText, CardImg, CardGroup, CardTitle, CardSubtitle, 
 import { Row, Col, Container } from "reactstrap";
 import { VscTriangleDown } from "react-icons/vsc";
 import './HomePost.style.css'
-import cover from '../../vendors/assets/news-christmas.webp'
-import cover2 from '../../vendors/assets/header-sammuel.jpg'
+import cover from '../../../vendors/assets/news-christmas.webp'
+import cover2 from '../../../vendors/assets/header-sammuel.jpg'
 
 const HomePosts = () => {
     const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis qui minima officiis fugit veniam deserunt necessitatibus modi harum a laborum.'

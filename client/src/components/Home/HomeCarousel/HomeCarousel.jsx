@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { Carousel, CarouselItem, CarouselControl } from "reactstrap";
 import { Button } from "reactstrap";
-import img1 from '../../vendors/carousel/1.jpg'
-import img2 from '../../vendors/carousel/2.jpg'
-import img3 from '../../vendors/carousel/3.jpg'
+import img1 from '../../../vendors/carousel/1.jpg'
+import img2 from '../../../vendors/carousel/2.jpg'
+import img3 from '../../../vendors/carousel/3.jpg'
 import './HomeCarousel.style.css'
 const items = [
     {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from 'reactstrap'
-import pic from '../../vendors/assets/tinh nguyen 1.jpg'
+import pic from '../../../vendors/assets/tinh nguyen 1.jpg'
 import './HomeMedia.style.css'
 const HomeMedia = () => {
 

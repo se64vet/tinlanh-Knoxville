@@ -3,7 +3,7 @@ import { Container } from "reactstrap";
 import { BsBook } from "react-icons/bs";
 import { FaCross } from "react-icons/fa";
 
-import bible from '../../vendors/assets/bible.jpg'
+import bible from '../../../vendors/assets/bible.jpg'
 
 const HomeBible = () => {
     const center = 'd-flex justify-content-center align-items-center '

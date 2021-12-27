@@ -1,15 +1,19 @@
 
 import './App.css';
-
 import React from 'react';
 import Home from './pages/Home';
-import Footer from './components/sharedComponents/Footer/Footer';
+import { Navbar, Footer } from "./components/sharedComponents";
+import NewPost from './pages/NewPost';
 
 
 function App() {
   return (
     <div className='p-0' style={{overflowX: 'hidden'}}>
-      <Home />
+      <Navbar/>
+      {/* <Home /> */}
+
+      <NewPost />
+
       <Footer />
     </div>
   );

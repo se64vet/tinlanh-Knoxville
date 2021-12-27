@@ -1,19 +1,14 @@
 import React from 'react'
-import HomeBible from '../components/HomeBible/HomeBible'
+import HomeBible from '../components/Home/HomeBible/HomeBible'
 
-import HomeCarousel from '../components/HomeCarousel/HomeCarousel'
-import HomeDailyBread from '../components/HomeDailyBread/HomeDailyBread'
-import HomeMedia from '../components/HomeMedia/HomeMedia'
-import HomePosts from '../components/HomePosts/HomePosts'
-import HomePray from '../components/HomePray/HomePray'
-import CustomNavbar from '../components/sharedComponents/Navbar/Navbar'
-import SectionDivider from '../components/sharedComponents/SectionDivider/SectionDivider'
+import { HomeCarousel, HomeDailyBread, HomeMedia, HomePosts, HomePray } from "../components/Home";
+import { SectionDivider } from "../components/sharedComponents";
 
 const Home = () => {
     
     return (
         <>
-            <CustomNavbar />
+            
             <HomeCarousel />
 
             <SectionDivider text="Tĩnh Nguyện Hàng Ngày" />

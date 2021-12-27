@@ -7,7 +7,7 @@ import Logo from '../../../vendors/assets/logo.png'
 const Footer = () => {
     const center = 'd-flex justify-content-center align-items-center '
     return (
-        <div className='text-center py-5 mt-5'>
+        <div className='text-center py-5 mt-5 footer'>
             <img src={Logo} alt="logo" className='mb-4'/>
 
             <div className='footer-infos'>

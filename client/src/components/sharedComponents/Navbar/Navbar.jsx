@@ -13,7 +13,7 @@ const navItemStyle = {
 }
 const navBarTogglerStyle  = {
     top: '1em',
-    left: '.5em'
+    left: '.5em',
 }
 const navItems = [
     {
@@ -73,7 +73,7 @@ const CustomNavbar = () => {
 
                 {navItems.map((item, key)=>(
                     <NavItem key = {key} style={navItemStyle}>
-                    <NavLink href={item.link} style={{color: 'white'}}>
+                    <NavLink href={item.link} style={{color: 'white',}}>
                         {item.item}
                     </NavLink>
                     </NavItem>

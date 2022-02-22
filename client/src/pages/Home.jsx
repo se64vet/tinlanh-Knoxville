@@ -3,31 +3,30 @@ import HomeBible from '../components/Home/HomeBible/HomeBible'
 
 import { HomeCarousel, HomeDailyBread, HomeMedia, HomePosts, HomePray } from "../components/Home";
 import { SectionDivider } from "../components/sharedComponents";
+import { Container } from "reactstrap";
 
 const Home = () => {
-    
-    return (
-        <>
-            
-            <HomeCarousel />
+  return (
+    <>
+      <HomeCarousel />
+      <Container fluid="xl">
+        <SectionDivider text="Tĩnh Nguyện Hàng Ngày" />
+        <HomeDailyBread />
 
-            <SectionDivider text="Tĩnh Nguyện Hàng Ngày" />
-            <HomeDailyBread />
+        <SectionDivider text="Bài Viết Mới" />
+        <HomePosts />
 
-            <SectionDivider text="Bài Viết Mới" />
-            <HomePosts />
+        <SectionDivider text="Âm Nhạc" />
+        <HomeMedia />
 
-            <SectionDivider text="Âm Nhạc" />
-            <HomeMedia />
+        <SectionDivider text="Cầu Nguyện" />
+        <HomePray />
 
-            <SectionDivider text="Cầu Nguyện" />
-            <HomePray />
-
-            <HomeBible />
-            
-        </>
-    )
-}
+        <HomeBible />
+      </Container>
+    </>
+  );
+};
 
 export default Home
 

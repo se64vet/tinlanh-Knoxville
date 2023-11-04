@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 import './globals.css'
+import { Footer } from '@/components/ui/footer'
+import { Navbar } from '@/components/ui/navbar'
 
-const inter = Inter({ subsets: ['latin'] })
+const font = Raleway({ subsets: ['latin'], weight: ['300', '500', '700', '900']})
 
 export const metadata: Metadata = {
   title: 'Tin Lanh Knoxville',
@@ -16,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>
+        <Navbar/>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

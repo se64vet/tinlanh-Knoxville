@@ -15,7 +15,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: ['prettier-plugin-tailwindcss'],
   darkMode:   'class',
 }
 export default config

@@ -8,11 +8,13 @@ const isTodayVideo = (video:any) => {
     if (d1 === d2)
         return video
 }
+
+// get all videos from youtube playlist
 export const GET = async (req:Request) => {
     const url: string = process.env.YT_API_URL || "";
     try {
         // get raw response from youtube v3 API
-        const data = await getDevotionalVideo(url);
+        const data = await getDevotionalVideos(url);
 
         // fitering unavailable videos
         const today = new Date(Date.now()).getDate()
@@ -39,14 +41,14 @@ export const GET = async (req:Request) => {
         })
         );
 
-        return NextResponse.json(items.pop());
+        return NextResponse.json(items);
     }
     catch(e) {
         console.log(e);
     }
 }
 
-const getDevotionalVideo = cache(async (url : string) => {
+const getDevotionalVideos = cache(async (url : string) => {
     const response = await fetch(url, {cache: "force-cache"})
     const data = await response.json();
     return data;

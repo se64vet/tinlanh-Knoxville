@@ -11,6 +11,7 @@ import {
   Space,
   Skeleton,
   rem,
+  ActionIcon,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSun, IconMoon } from "@tabler/icons-react";
@@ -51,27 +52,37 @@ export function HeaderSimple() {
     </Link>
   ));
 
+  const mobileItems = links.map((link) => (
+    <Link
+      key={link.label}
+      href={link.link}
+      className={classes.link}
+      data-active={pathname === link.link ? true : undefined}
+      onClick={close}
+    >
+      {link.label}
+    </Link>
+  ));
+
   const ThemeToggle = () => {
     return (
       <Group>
-        <Button
+        <ActionIcon
           onClick={() =>
             colorScheme === "light"
               ? setColorScheme("dark")
               : setColorScheme("light")
           }
-          leftSection={
-            colorScheme === "light" ? (
-              <IconMoon size={20} />
-            ) : (
-              <IconSun size={20} />
-            )
-          }
           variant="filled"
+          size={"md"}
           color={colorScheme === "light" ? "dark" : "gray"}
         >
-          {colorScheme === "light" ? "Dark" : "Light"}
-        </Button>
+          {colorScheme === "light" ? (
+            <IconMoon size={20} />
+          ) : (
+            <IconSun size={20} />
+          )}
+        </ActionIcon>
       </Group>
     );
   };
@@ -96,11 +107,17 @@ export function HeaderSimple() {
           </Group>
         </Stack>
 
-        <Burger opened={opened} onClick={open} hiddenFrom="xs" size="sm" />
+        <Burger
+          opened={opened}
+          onClick={open}
+          hiddenFrom="xs"
+          size="md"
+          ml={"lg"}
+        />
         <Drawer opened={opened} onClose={close} size={"sm"} position="right">
           <Logo />
           <Space h={"lg"} />
-          <Stack>{items}</Stack>
+          <Stack>{mobileItems}</Stack>
         </Drawer>
       </Container>
     </header>

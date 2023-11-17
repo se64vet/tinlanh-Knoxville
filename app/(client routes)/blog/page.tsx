@@ -1,28 +1,27 @@
 import { ArticlesCardsGrid } from "@/app/components/ui/card-grid/cardGrid";
 import { HeroImageBackground } from "@/app/components/ui/hero/heroWithBg";
-import {
-  Container,
-  Divider,
-  Space,
-  Skeleton,
-  rem,
-  Title,
-  Stack,
-} from "@mantine/core";
+import { Container, Divider, Space, Title, Stack } from "@mantine/core";
 import React from "react";
 
 const PricingPage = () => {
+  const heroContent = {
+    title: "Thông Báo | Bài Viết",
+    description: "Các thông báo và bài viết được cập nhật hàng tuần",
+  };
   return (
     <Container my={"md"}>
-      <HeroImageBackground />
+      <HeroImageBackground
+        title={heroContent.title}
+        description={heroContent.description}
+      />
 
       <Space h={"md"} />
       <Divider my={"lg"} />
       <Space h={"md"} />
 
       <Stack>
-        <Title order={2}>Video Section</Title>
-        <Skeleton height={rem(300)} radius="md" animate={false} />
+        <Title order={2}>Latest news</Title>
+        <ArticlesCardsGrid />
       </Stack>
 
       <Space h={"md"} />
@@ -30,7 +29,7 @@ const PricingPage = () => {
       <Space h={"md"} />
 
       <Stack>
-        <Title order={2}>Blog Section</Title>
+        <Title order={2}>Blog posts</Title>
         <ArticlesCardsGrid />
       </Stack>
     </Container>

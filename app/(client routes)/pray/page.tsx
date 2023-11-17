@@ -5,9 +5,17 @@ import { Container, Divider, Space, Title, Stack } from "@mantine/core";
 import React from "react";
 
 const PricingPage = () => {
+  const heroContent = {
+    title: "Cầu Nguyện | Cầu Thay",
+    description:
+      "Của tế lễ gian ác lấy làm gớm ghiếc cho Đức Giê-hô-va; Song lời cầu nguyện của người ngay thẳng được đẹp lòng Ngài - Châm Ngôn 15:8",
+  };
   return (
-    <Stack my={"md"}>
-      <HeroImageBackground />
+    <Container my={"md"}>
+      <HeroImageBackground
+        title={heroContent.title}
+        description={heroContent.description}
+      />
 
       <Space h={"md"} />
       <Divider my={"lg"} />
@@ -25,7 +33,7 @@ const PricingPage = () => {
         <Title order={2}>Problem? Let us know</Title>
         <SimpleRequestForm />
       </Stack>
-    </Stack>
+    </Container>
   );
 };
 

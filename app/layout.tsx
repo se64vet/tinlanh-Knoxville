@@ -31,12 +31,12 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider>
-          <Container>
-            <Space h={"lg"} />
-            <HeaderSimple />
-            <Box mih="100vh">{children}</Box>
-            <FooterSimple />
-          </Container>
+          {/* <Container> */}
+          <Space h={"lg"} />
+          <HeaderSimple />
+          <Box mih="100vh">{children}</Box>
+          <FooterSimple />
+          {/* </Container> */}
         </MantineProvider>
       </body>
     </html>

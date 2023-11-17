@@ -1,15 +1,20 @@
+import { Text, Box, Stack, rem } from "@mantine/core";
+import { IconSun, IconPhone, IconMapPin, IconAt } from "@tabler/icons-react";
+import classes from "./contactIcons.module.css";
 
-import { Text, Box, Stack, rem } from '@mantine/core';
-import { IconSun, IconPhone, IconMapPin, IconAt } from '@tabler/icons-react';
-import classes from './contactIcons.module.css';
-
-interface ContactIconProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
+interface ContactIconProps
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "title"> {
   icon: typeof IconSun;
   title: React.ReactNode;
   description: React.ReactNode;
 }
 
-function ContactIcon({ icon: Icon, title, description, ...others }: ContactIconProps) {
+function ContactIcon({
+  icon: Icon,
+  title,
+  description,
+  ...others
+}: ContactIconProps) {
   return (
     <div className={classes.wrapper} {...others}>
       <Box mr="md">
@@ -27,13 +32,23 @@ function ContactIcon({ icon: Icon, title, description, ...others }: ContactIconP
 }
 
 const MOCKDATA = [
-  { title: 'Email', description: 'hello@mantine.dev', icon: IconAt },
-  { title: 'Phone', description: '+49 (800) 335 35 35', icon: IconPhone },
-  { title: 'Address', description: '844 Morris Park avenue', icon: IconMapPin },
-  { title: 'Working hours', description: '8 a.m. – 11 p.m.', icon: IconSun },
+  { title: "Email", description: "httlKnoxville@gmail.com", icon: IconAt },
+  { title: "Phone", description: "+1-(865)-206-5961", icon: IconPhone },
+  { title: "Address", description: "8000 Kingston Pike", icon: IconMapPin },
+  {
+    title: "Worship every weeks",
+    description: "Sun: 8 a.m. – 11 p.m.",
+    icon: IconSun,
+  },
 ];
 
-export function ContactIconsList() {
-  const items = MOCKDATA.map((item, index) => <ContactIcon key={index} {...item} />);
+export function ContactIconsList({
+  data = MOCKDATA,
+}: {
+  data?: ContactIconProps[];
+}) {
+  const items = data.map((item, index) => (
+    <ContactIcon key={index} {...item} />
+  ));
   return <Stack>{items}</Stack>;
 }

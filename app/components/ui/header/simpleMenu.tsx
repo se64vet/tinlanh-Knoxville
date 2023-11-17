@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import {
   Container,
@@ -10,33 +9,35 @@ import {
   Drawer,
   Stack,
   Space,
+  Skeleton,
+  rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import Link from "next/link";
 
 import classes from "./simpleMenu.module.css";
-import Logo from "../../logo";
+import Logo from "../logo/logo";
+import { usePathname } from "next/navigation";
 
 const links = [
-  { link: "/", label: "Feature" },
-  { link: "/pricing", label: "Pricing" },
-  { link: "/learn", label: "Learn" },
-  { link: "/community", label: "Community" },
+  { link: "/devotion", label: "Tĩnh Nguyện" },
+  { link: "/pray", label: "Cầu Thay" },
+  { link: "/blog", label: "Thông báo/ Bài viết" },
 ];
 
 export function HeaderSimple() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
   const { setColorScheme, colorScheme } = useMantineColorScheme();
   const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   if (!isMounted) {
-    return null;
+    return <Skeleton height={rem(30)} radius="md" />;
   }
 
   const items = links.map((link) => (
@@ -44,10 +45,7 @@ export function HeaderSimple() {
       key={link.label}
       href={link.link}
       className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={() => {
-        setActive(link.link);
-      }}
+      data-active={pathname === link.link ? true : undefined}
     >
       {link.label}
     </Link>
@@ -69,8 +67,8 @@ export function HeaderSimple() {
               <IconSun size={20} />
             )
           }
-          variant="outline"
-          color="orange"
+          variant="filled"
+          color={colorScheme === "light" ? "dark" : "gray"}
         >
           {colorScheme === "light" ? "Dark" : "Light"}
         </Button>
@@ -80,16 +78,23 @@ export function HeaderSimple() {
 
   return (
     <header className={classes.header}>
-      <Container size="md" className={classes.inner}>
-        <Link href={"/"} className={classes.link}>
-          <Logo />
-        </Link>
-
-        <Group gap={5} visibleFrom="xs">
-          {items}
-        </Group>
-
-        <ThemeToggle />
+      <Container size="md" className={classes.container}>
+        <Stack align="stretch" justify="start" className={classes.stack}>
+          <Group justify="space-between">
+            <Link href={"/"} className={classes.logo}>
+              <Logo />
+            </Link>
+            <ThemeToggle />
+          </Group>
+          <Group
+            gap={5}
+            visibleFrom="xs"
+            justify="center"
+            className={classes.itemsWrapper}
+          >
+            {items}
+          </Group>
+        </Stack>
 
         <Burger opened={opened} onClick={open} hiddenFrom="xs" size="sm" />
         <Drawer opened={opened} onClose={close} size={"sm"} position="right">

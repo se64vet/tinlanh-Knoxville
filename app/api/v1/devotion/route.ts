@@ -17,7 +17,7 @@ export const GET = async (req:Request) => {
         const data:youtubeResponse = await getDevotionalVideos(url);
 
         // fitering unavailable videos
-        const filteredData:ItemsEntity[] = data.items!.filter((item:any) => (item.snippet.thumbnails.default !== undefined))
+        const filteredData:ItemsEntity[] = data.items === undefined ? [] : data.items!.filter((item:any) => (item.snippet.thumbnails.default !== undefined))
 
         // extract fields from response for cleaner data return
         const items:devotionalVideo[] = filteredData.map((item:any) => (

@@ -21,7 +21,7 @@ const PricingPage = () => {
 
       <Stack>
         <Title order={2}>Latest news</Title>
-        <ArticlesCardsGrid />
+        {/* <ArticlesCardsGrid /> */}
       </Stack>
 
       <Space h={"md"} />
@@ -30,7 +30,7 @@ const PricingPage = () => {
 
       <Stack>
         <Title order={2}>Blog posts</Title>
-        <ArticlesCardsGrid />
+        {/* <ArticlesCardsGrid /> */}
       </Stack>
     </Container>
   );

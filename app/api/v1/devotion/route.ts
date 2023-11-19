@@ -40,7 +40,7 @@ export const GET = async (req:Request) => {
         })
         );
 
-        return NextResponse.json(items);
+        return NextResponse.json(items)
     }
     catch(e) {
         console.log(e);

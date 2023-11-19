@@ -10,6 +10,7 @@ import {
   Space,
   Divider,
   Title,
+  Text,
 } from "@mantine/core";
 
 import { GetInTouch } from "@/app/components/ui/contact-form/contactForm";
@@ -22,8 +23,8 @@ import { useRouter } from "next/navigation";
 const PRIMARY_COL_HEIGHT = rem(300);
 
 const heroContent = {
-  title: "Nhóm Lại Chúa Nhật Hàng Tuần",
-  description: "1:30-3:30 PM | 8000 Middle Brook Pike",
+  title: "Hội Thánh Tin Lành Việt Nam Tại Knoxville",
+  description: "|  | ",
   btnAction1: "Liên Lạc Với Chúng Tôi",
 };
 
@@ -77,10 +78,14 @@ export default function Home() {
         {/* Intro Billboard */}
         <HeroImageBackground
           title={heroContent.title}
-          description={heroContent.description}
+          // description={heroContent.description}
           btnAction1={heroContent.btnAction1}
           handleBtn1={() => handleScrollToElement(getInTouchRef)}
-        />
+        >
+          <Text ta={"center"}>Nhóm lại hàng tuần 1:30-3:30 PM </Text>
+          <Text ta={"center"}>8000 Middle Brook Pike</Text>
+          <Text ta={"center"}>{"+1 (865)-591-2605"}</Text>
+        </HeroImageBackground>
 
         {/* Devotion Section */}
         <Space />

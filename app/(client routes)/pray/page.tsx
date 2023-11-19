@@ -30,7 +30,9 @@ const PricingPage = () => {
       <Space h={"md"} />
 
       <Stack align="center" justify="center">
-        <Title order={2}>Problem? Let us know</Title>
+        <Title order={2} ta={"center"}>
+          Có vấn đề ? <br /> Hãy để chúng tôi cầu thay
+        </Title>
         <SimpleRequestForm />
       </Stack>
     </Container>

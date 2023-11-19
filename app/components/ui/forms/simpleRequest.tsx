@@ -4,14 +4,22 @@ import React from "react";
 export const SimpleRequestForm = () => {
   return (
     <Container>
-      <Group align="end">
-        <TextInput size="md" label="Name" placeholder="Your name" />
-        <Checkbox defaultChecked label="Show your name on this ticket" />
+      <Group align="end" mb={"md"}>
+        <TextInput size="md" label="Tên" placeholder="Nguyễn Văn A" />
+        <Checkbox defaultChecked label="Hiển thị tên trên bảng" />
       </Group>
 
-      <TextInput size="md" label="Issue" placeholder="How can we help you?" />
+      <TextInput
+        size="md"
+        label="Vấn đề"
+        placeholder="Sức khoẻ của tôi"
+        mb={"md"}
+      />
 
-      <Textarea label="Description" placeholder="Please provide more details" />
+      <Textarea
+        label="Chi tiết"
+        placeholder="Xin cho biết thêm để chúng tôi có thể cầu thay cho bạn"
+      />
     </Container>
   );
 };

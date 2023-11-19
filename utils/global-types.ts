@@ -1,3 +1,8 @@
+type videoThumbnail = {
+    url: string,
+    width: number,
+    height: number,
+}
 export type devotionalVideo = {
     id: string,
     title: string,
@@ -7,9 +12,10 @@ export type devotionalVideo = {
         standard: videoThumbnail
     }
 }
-
-type videoThumbnail = {
-    url: string,
-    width: number,
-    height: number,
+export type cardGridRenderProps = {
+    category :string,
+    title: string,
+    image: string
+    link: string
 }
+

@@ -1,6 +1,7 @@
 import cx from "clsx";
 import { Title, Text, Container, Button, Overlay } from "@mantine/core";
 import classes from "./heroWithBg.module.css";
+import { ReactNode } from "react";
 
 const defaultBg =
   "https://images.unsplash.com/photo-1469228252629-cbe7cb7db2c8?q=80&w=1546&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -13,6 +14,7 @@ type HeroImageBackgroundProps = {
   btnAction2?: string;
   handleBtn1?: () => void;
   handleBtn2?: () => void;
+  children?: ReactNode;
 };
 export const HeroImageBackground: React.FC<HeroImageBackgroundProps> = ({
   bgImg = defaultBg,
@@ -23,6 +25,7 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundProps> = ({
   description,
   handleBtn1,
   handleBtn2,
+  children,
 }) => {
   return (
     <div
@@ -43,6 +46,7 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundProps> = ({
           <Text size="lg" className={classes.description}>
             {description}
           </Text>
+          {children}
         </Container>
 
         <div className={classes.controls}>

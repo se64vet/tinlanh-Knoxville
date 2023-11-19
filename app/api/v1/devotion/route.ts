@@ -18,7 +18,7 @@ export const GET = async (req:Request) => {
 
         // fitering unavailable videos
         const today = new Date(Date.now()).getDate()
-        const filteredData = data!.items.filter((item:any) => (item.snippet.thumbnails.default !== undefined))
+        const filteredData = data.items!.filter((item:any) => (item.snippet.thumbnails.default !== undefined))
 
         // extract fields from response for cleaner data return
         const items:devotionalVideo[] = filteredData.map((item:any) => (

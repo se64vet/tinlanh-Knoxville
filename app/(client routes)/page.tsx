@@ -38,6 +38,7 @@ const homeLinks = {
 };
 
 const homeBackgroundImages = {
+  hero: "https://images.unsplash.com/photo-1591664595578-1d0fb0b50e03?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   bible:
     "https://images.unsplash.com/photo-1604881745783-8433d5779aca?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   pray: "https://images.unsplash.com/photo-1575073776525-2cb8b4bd3f0d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -78,13 +79,19 @@ export default function Home() {
         {/* Intro Billboard */}
         <HeroImageBackground
           title={heroContent.title}
-          // description={heroContent.description}
+          bgImg={homeBackgroundImages.hero}
           btnAction1={heroContent.btnAction1}
           handleBtn1={() => handleScrollToElement(getInTouchRef)}
         >
-          <Text ta={"center"}>Nhóm lại hàng tuần 1:30-3:30 PM </Text>
-          <Text ta={"center"}>8000 Middle Brook Pike</Text>
-          <Text ta={"center"}>{"+1 (865)-591-2605"}</Text>
+          <Text c={"white"} ta={"center"}>
+            Nhóm lại hàng tuần 1:30-3:30 PM{" "}
+          </Text>
+          <Text c={"white"} ta={"center"}>
+            8000 Middle Brook Pike
+          </Text>
+          <Text c={"white"} ta={"center"}>
+            {"+1 (865)-591-2605"}
+          </Text>
         </HeroImageBackground>
 
         {/* Devotion Section */}

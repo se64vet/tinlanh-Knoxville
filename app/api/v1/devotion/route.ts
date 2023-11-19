@@ -1,4 +1,4 @@
-import { devotionalVideo } from '@/utils/global-types'
+import { ItemsEntity, devotionalVideo, youtubeResponse } from '@/utils/global-types'
 import {NextResponse} from 'next/server'
 import { cache } from 'react'
 
@@ -14,10 +14,10 @@ export const GET = async (req:Request) => {
     })
     try {
         // get raw response from youtube v3 API
-        const data = await getDevotionalVideos(url);
+        const data:youtubeResponse = await getDevotionalVideos(url);
 
         // fitering unavailable videos
-        const filteredData = data.items && data.items.filter((item:any) => (item.snippet.thumbnails.default !== undefined))
+        const filteredData:ItemsEntity[] = data.items!.filter((item:any) => (item.snippet.thumbnails.default !== undefined))
 
         // extract fields from response for cleaner data return
         const items:devotionalVideo[] = filteredData.map((item:any) => (

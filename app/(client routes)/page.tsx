@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Grid,
@@ -69,6 +69,7 @@ export default function Home() {
       });
       const data: devotionalVideo[] = await response.json();
       setDevotionVideo(data.pop());
+      setInterval(() => console.log(data), 3000);
     };
     getDailyDevotionVideo();
   }, []);

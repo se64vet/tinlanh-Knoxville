@@ -40,7 +40,7 @@ export const GET = async (req:Request) => {
         })
         );
 
-        return NextResponse.json({data, url})
+        return NextResponse.json(items)
     }
     catch(e) {
         return new NextResponse('[GET:api/v1/devotion] : Internal Error', {status: 500})

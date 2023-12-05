@@ -69,7 +69,7 @@ export default function Home() {
       });
       const data: devotionalVideo[] = await response.json();
       setDevotionVideo(data.pop());
-      setInterval(() => console.log(data), 3000);
+      // setInterval(() => console.log(data), 3000);
     };
     getDailyDevotionVideo();
   }, []);

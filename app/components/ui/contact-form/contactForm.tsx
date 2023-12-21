@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Paper,
   Text,
@@ -10,9 +10,15 @@ import {
   SimpleGrid,
 } from "@mantine/core";
 import { ContactIconsList } from "./contactIcons";
+import { UseFormReturnType } from "@mantine/form";
+
+import { contactForm } from "@/utils/global-types";
 import classes from "./contactForm.module.css";
 
-export function GetInTouch() {
+type GetInTouchProps = {
+  formController: UseFormReturnType<contactForm>;
+};
+export const GetInTouch: React.FC<GetInTouchProps> = ({ formController }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -79,4 +85,4 @@ export function GetInTouch() {
       </div>
     </Paper>
   );
-}
+};

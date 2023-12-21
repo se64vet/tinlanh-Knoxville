@@ -1,5 +1,6 @@
 import {
   Blockquote,
+  Container,
   Divider,
   Image,
   Stack,
@@ -12,27 +13,30 @@ import React from "react";
 
 const BlogPage = () => {
   return (
-    <Stack>
-      {/* banner image */}
-      <Image radius="md" src={imgUrl} alt="banner" />
+    <Container>
+      <Stack>
+        {/* banner image */}
+        <Image radius="md" src={imgUrl} alt="banner" />
 
-      {/* Title */}
-      <Title>Messaging: What its is, why you need it</Title>
+        {/* Title */}
+        <Title>Messaging: What its is, why you need it</Title>
 
-      {/* Author */}
-      <Text fw={"bold"}>Lora Smith</Text>
-      <Divider my={"md"} color="orange" />
+        {/* Author */}
+        <Text fw={"bold"}>Lora Smith</Text>
+        <Divider my={"md"} color="orange" />
 
-      {/* Short description */}
-      <Blockquote color="yellow" icon={<IconBookmark />} mt={"xl"}>
-        Life is like an npm install – you never know what you are going to get.
-      </Blockquote>
+        {/* Short description */}
+        <Blockquote color="yellow" icon={<IconBookmark />} mt={"xl"}>
+          Life is like an npm install – you never know what you are going to
+          get.
+        </Blockquote>
 
-      {/* Main content */}
-      <TypographyStylesProvider>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </TypographyStylesProvider>
-    </Stack>
+        {/* Main content */}
+        <TypographyStylesProvider pl={"0px"}>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </TypographyStylesProvider>
+      </Stack>
+    </Container>
   );
 };
 export default BlogPage;

@@ -1,3 +1,4 @@
+// devotional video type
 type videoThumbnail = {
     url: string,
     width: number,
@@ -54,4 +55,10 @@ export interface youtubeResponse {
     kind: string;
     videoId: string;
   }
-  
+  // contact form type
+export interface contactForm {
+    name: string,
+    email: string,
+    title: string,
+    message: string
+  }

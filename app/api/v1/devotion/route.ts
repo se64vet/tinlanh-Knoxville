@@ -8,8 +8,9 @@ import { cache } from 'react'
 export const GET = async (req:Request) => {
     const url: string = process.env.YT_API_URL || "";
     const getDevotionalVideos = cache(async (url : string) => {
-        const response = await fetch(url, {cache: "no-cache"})
+        const response = await fetch(url, {cache: "no-store"})
         const data = await response.json();
+        console.log(url)
         return data;
     })
     try {

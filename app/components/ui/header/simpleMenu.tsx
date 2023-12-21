@@ -12,6 +12,7 @@ import {
   Skeleton,
   rem,
   ActionIcon,
+  Box,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSun, IconMoon } from "@tabler/icons-react";
@@ -95,7 +96,9 @@ export function HeaderSimple() {
             <Link href={"/"} className={classes.logo}>
               <Logo />
             </Link>
-            <ThemeToggle />
+            <Box visibleFrom="xs">
+              <ThemeToggle />
+            </Box>
           </Group>
           <Group
             gap={5}
@@ -106,6 +109,10 @@ export function HeaderSimple() {
             {items}
           </Group>
         </Stack>
+
+        <Box hiddenFrom="xs">
+          <ThemeToggle />
+        </Box>
 
         <Burger
           opened={opened}

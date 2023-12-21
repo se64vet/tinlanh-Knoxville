@@ -3,7 +3,7 @@ import { HeroImageBackground } from "@/app/components/ui/hero/heroWithBg";
 import { Container, Divider, Space, Title, Stack } from "@mantine/core";
 import React from "react";
 
-const PricingPage = () => {
+const BlogPage = () => {
   const heroContent = {
     title: "Thông Báo | Bài Viết",
     description: "Các thông báo và bài viết được cập nhật hàng tuần",
@@ -36,4 +36,4 @@ const PricingPage = () => {
   );
 };
 
-export default PricingPage;
+export default BlogPage;

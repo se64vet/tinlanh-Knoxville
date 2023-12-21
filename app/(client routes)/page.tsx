@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { z } from "zod";
+import { zodResolver } from "mantine-form-zod-resolver";
 import {
   Container,
   Grid,
@@ -16,9 +19,9 @@ import {
 import { GetInTouch } from "@/app/components/ui/contact-form/contactForm";
 import { HeroImageBackground } from "@/app/components/ui/hero/heroWithBg";
 import { devotionalVideo } from "@/utils/global-types";
-import DevotionVideo from "../components/ui/video-frame/devotionVideo";
-import { ArticleCardImage } from "../components/ui/card/simpleCard";
-import { useRouter } from "next/navigation";
+import { ArticleCardImage } from "@/app/components/ui/card/simpleCard";
+import DevotionVideo from "@/app/components/ui/video-frame/devotionVideo";
+import { useForm } from "@mantine/form";
 
 const PRIMARY_COL_HEIGHT = rem(300);
 
@@ -46,33 +49,53 @@ const homeBackgroundImages = {
     "https://images.unsplash.com/photo-1524088484081-4ca7e08e3e19?q=80&w=1582&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
 export default function Home() {
-  const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`;
+  // State, hooks declarations
   const getInTouchRef = React.useRef<HTMLInputElement>(null);
   const [devotionVideo, setDevotionVideo] = useState<
     devotionalVideo | undefined
   >();
   const router = useRouter();
 
+  // Handle event functions
   const handleScrollToElement = (ref: React.RefObject<HTMLInputElement>) => {
     ref.current?.scrollIntoView({ block: "center", behavior: "smooth" });
   };
-
   const handleExternalLink = (link: string) => {
     router.push(link);
   };
+  const handleContactFormSubmit = () => {};
 
+  // fetching devotion videos
   useEffect(() => {
     const getDailyDevotionVideo = async () => {
       const revalidateFetchingTimeInSeconds = 86400; // 12hrs
-      const response = await fetch("/api/v1/devotion", {
-        next: { revalidate: revalidateFetchingTimeInSeconds },
-      });
+      const response = await fetch("/api/v1/devotion", {});
       const data: devotionalVideo[] = await response.json();
       setDevotionVideo(data.pop());
-      // setInterval(() => console.log(data), 3000);
     };
     getDailyDevotionVideo();
   }, []);
+
+  //form schema & default values
+  const contactFormSchema = z.object({
+    name: z.string().min(2, { message: "Thiếu tên | Name missing" }),
+    email: z
+      .string()
+      .email({ message: "Email không hợp lệ lệ | Invalid email" }),
+    title: z.string().min(3, { message: "Thiếu tựa đề | Title missing" }),
+    message: z
+      .string()
+      .min(20, { message: "Thiếu nội dung | Message missing" }),
+  });
+  const contactForm = useForm({
+    initialValues: {
+      name: "",
+      email: "",
+      title: "",
+      message: "",
+    },
+    validate: zodResolver(contactFormSchema),
+  });
 
   return (
     <Container my="md">
@@ -90,7 +113,7 @@ export default function Home() {
           <Text c={"white"} ta={"center"}>
             8000 Middle Brook Pike
           </Text>
-          <Text c={"white"} ta={"center"}>
+          <Text c={"white"} ta={"center"} td={"none"}>
             {"+1 (865)-591-2605"}
           </Text>
         </HeroImageBackground>
@@ -105,12 +128,21 @@ export default function Home() {
         <Divider h={"md"} />
         <Title order={3}>Thông Báo | Tin Tức</Title>
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
-          <ArticleCardImage
-            category="tìm hiểu Kinh Thánh"
-            title="Sáng Thế Ký"
-            btnAction="Xem Thêm"
-            handleBtn={() => handleExternalLink(homeLinks.BibleStudyUrl)}
-          />
+          <Stack>
+            <ArticleCardImage
+              category="tìm hiểu Kinh Thánh"
+              title="Sáng Thế Ký"
+              btnAction="Xem Thêm"
+              handleBtn={() => handleExternalLink(homeLinks.BibleStudyUrl)}
+            />
+            <ArticleCardImage
+              category="tin tức"
+              title="Thông Báo"
+              btnAction="Xem Thêm"
+              handleBtn={() => handleExternalLink("/news")}
+              bgImg="https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </Stack>
           <Grid gutter="md">
             <Grid.Col>
               <ArticleCardImage
@@ -121,6 +153,7 @@ export default function Home() {
                 bgImg={homeBackgroundImages.story}
               />
             </Grid.Col>
+
             <Grid.Col span={6}>
               <ArticleCardImage
                 category="tìm hiểu Kinh Thánh"
@@ -146,7 +179,7 @@ export default function Home() {
         <Space />
         <Divider h={"md"} />
         <div ref={getInTouchRef}>
-          <GetInTouch />
+          <GetInTouch formController={contactForm} />
         </div>
       </Stack>
     </Container>

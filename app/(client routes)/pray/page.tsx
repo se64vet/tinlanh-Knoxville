@@ -4,7 +4,7 @@ import { HeroImageBackground } from "@/app/components/ui/hero/heroWithBg";
 import { Container, Divider, Space, Title, Stack } from "@mantine/core";
 import React from "react";
 
-const PricingPage = () => {
+const PrayPage = () => {
   const heroContent = {
     title: "Cầu Nguyện | Cầu Thay",
     description:
@@ -39,4 +39,4 @@ const PricingPage = () => {
   );
 };
 
-export default PricingPage;
+export default PrayPage;

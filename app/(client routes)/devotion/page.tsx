@@ -115,6 +115,10 @@ const PricingPage = () => {
           {disablePagination ? "Hết" : " Xem thêm"}
         </Button>
       </Stack>
+
+      {devotionalVideos?.map((i) => (
+        <p>{i.title}</p>
+      ))}
     </Container>
   );
 };

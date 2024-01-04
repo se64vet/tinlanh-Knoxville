@@ -8,7 +8,6 @@ import {
   Container,
   Grid,
   SimpleGrid,
-  rem,
   Stack,
   Space,
   Divider,
@@ -22,8 +21,6 @@ import { devotionalVideo } from "@/utils/global-types";
 import { ArticleCardImage } from "@/app/components/ui/card/simpleCard";
 import DevotionVideo from "@/app/components/ui/video-frame/devotionVideo";
 import { useForm } from "@mantine/form";
-
-const PRIMARY_COL_HEIGHT = rem(300);
 
 const heroContent = {
   title: "Hội Thánh Tin Lành Việt Nam Tại Knoxville",

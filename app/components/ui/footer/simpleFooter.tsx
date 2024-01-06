@@ -4,26 +4,40 @@ import { Container, Group, Anchor, Stack, Title, Text } from "@mantine/core";
 import classes from "./simpleFooter.module.css";
 import Logo from "@/app/components/ui/logo/logo";
 import Link from "next/link";
+import { useContext } from "react";
+import { langContext } from "@/app/components/providers/language";
 
 const links = [
-  { link: "#", label: "Hội Thánh" },
+  { link: "#", label: "Trang Chủ" },
   { link: "email:httlknoxville@gmail.com", label: "Góp Ý" },
   { link: "email:httlknoxville@gmail.com", label: "Liên Hệ" },
-  { link: "#", label: "Tiếng Anh" },
 ];
 
 export function FooterSimple() {
-  const items = links.map((link) => (
-    <Anchor<"a">
-      c="dimmed"
-      key={link.label}
-      href={link.link}
-      onClick={(event) => event.preventDefault()}
-      size="sm"
-    >
-      {link.label}
-    </Anchor>
-  ));
+  const { language, setLanguage } = useContext(langContext);
+  const items = (
+    <>
+      {links.map((link) => (
+        <Anchor<"a">
+          c="dimmed"
+          key={link.label}
+          href={link.link}
+          onClick={(event) => event.preventDefault()}
+          size="sm"
+        >
+          {link.label}
+        </Anchor>
+      ))}
+      <Anchor<"a">
+        c="dimmed"
+        key={"lang"}
+        onClick={() => setLanguage()}
+        size="sm"
+      >
+        {"Tiếng Anh"}
+      </Anchor>
+    </>
+  );
 
   return (
     <div className={classes.footer}>

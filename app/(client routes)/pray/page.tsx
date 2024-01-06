@@ -1,7 +1,7 @@
 import { FaqSimple } from "@/app/components/ui/faq/simpleFaq";
 import { SimpleRequestForm } from "@/app/components/ui/forms/simpleRequest";
 import { HeroImageBackground } from "@/app/components/ui/hero/heroWithBg";
-import { Container, Divider, Space, Title, Stack } from "@mantine/core";
+import { Container, Divider, Space, Title, Stack, Box } from "@mantine/core";
 import React from "react";
 
 const PrayPage = () => {
@@ -17,13 +17,13 @@ const PrayPage = () => {
         description={heroContent.description}
       />
 
-      <Space h={"md"} />
+      {/* <Space h={"md"} />
       <Divider my={"lg"} />
       <Space h={"md"} />
 
-      <Stack>
+      <Box>
         <FaqSimple />
-      </Stack>
+      </Box> */}
 
       <Space h={"md"} />
       <Divider my={"lg"} />

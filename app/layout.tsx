@@ -4,8 +4,11 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { MantineProvider, ColorSchemeScript, Space, Box } from "@mantine/core";
 
-import { HeaderSimple } from "./components/ui/header/simpleMenu";
-import { FooterSimple } from "./components/ui/footer/simpleFooter";
+import { HeaderSimple } from "@/app/components/ui/header/simpleMenu";
+import { FooterSimple } from "@/app/components/ui/footer/simpleFooter";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import LanguageProvider from "@/app/components/providers/language";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -26,10 +29,13 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider>
-          <Space h={"xl"} />
-          <HeaderSimple />
-          <Box mih="100vh">{children}</Box>
-          <FooterSimple />
+          <ToastContainer />
+          <LanguageProvider>
+            <Space h={"xl"} />
+            <HeaderSimple />
+            <Box mih="100vh">{children}</Box>
+            <FooterSimple />
+          </LanguageProvider>
         </MantineProvider>
       </body>
     </html>

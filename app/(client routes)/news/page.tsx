@@ -1,6 +1,6 @@
 import { ArticlesCardsGrid } from "@/app/components/ui/card-grid/cardGrid";
 import { HeroImageBackground } from "@/app/components/ui/hero/heroWithBg";
-import { Container, Divider, Space, Title, Stack } from "@mantine/core";
+import { Container, Divider, Space, Title, Stack, Text } from "@mantine/core";
 import React from "react";
 
 const BlogPage = () => {
@@ -20,8 +20,11 @@ const BlogPage = () => {
       <Space h={"md"} />
 
       <Stack>
-        <Title order={2}>Latest news</Title>
+        <Title order={2}>Thông Báo Mới</Title>
         {/* <ArticlesCardsGrid /> */}
+        <Text fs={"italic"} c={"dimmed"}>
+          Hiện tại không có thông báo nào
+        </Text>
       </Stack>
 
       <Space h={"md"} />
@@ -29,7 +32,10 @@ const BlogPage = () => {
       <Space h={"md"} />
 
       <Stack>
-        <Title order={2}>Blog posts</Title>
+        <Title order={2}>Các Bài Viết Khác</Title>
+        <Text fs={"italic"} c={"dimmed"}>
+          Hiện tại không có bài viết mới nào
+        </Text>
         {/* <ArticlesCardsGrid /> */}
       </Stack>
     </Container>

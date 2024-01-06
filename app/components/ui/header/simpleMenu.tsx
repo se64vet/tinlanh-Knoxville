@@ -25,7 +25,7 @@ import { usePathname } from "next/navigation";
 const links = [
   { link: "/devotion", label: "Tĩnh Nguyện" },
   { link: "/pray", label: "Cầu Thay" },
-  { link: "/blog", label: "Thông báo/ Bài viết" },
+  { link: "/news", label: "Thông báo/ Bài viết" },
 ];
 
 export function HeaderSimple() {

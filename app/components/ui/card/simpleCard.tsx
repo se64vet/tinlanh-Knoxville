@@ -25,7 +25,10 @@ export const ArticleCardImage: React.FC<ArticleCardImageProps> = ({
       p="xl"
       radius="md"
       className={classes.card}
-      style={{ backgroundImage: `url(${bgImg})`, height: rem(height) }}
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${bgImg})`,
+        height: rem(height),
+      }}
     >
       <div>
         <Text className={classes.category} size="xs">

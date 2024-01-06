@@ -10,7 +10,6 @@ export const GET = async (req:Request) => {
     const getDevotionalVideos = cache(async (url : string) => {
         const response = await fetch(url, {cache: "no-store"})
         const data = await response.json();
-        console.log(url)
         return data;
     })
     try {

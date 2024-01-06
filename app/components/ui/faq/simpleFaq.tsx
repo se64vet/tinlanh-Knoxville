@@ -7,9 +7,9 @@ const placeholder =
 
 export function FaqSimple() {
   return (
-    <Container size="sm" className={classes.wrapper}>
+    <Container size="sm" className={classes.wraapper}>
       <Title ta="center" className={classes.title}>
-        Frequently Asked Questions
+        Các Vấn Đề Cần Được Cầu Thay
       </Title>
 
       <Accordion variant="separated">

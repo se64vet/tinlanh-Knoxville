@@ -96,7 +96,6 @@ const PricingPage = () => {
       <Space h={"md"} />
 
       <Stack>
-        <Title order={2}>{todayDate}</Title>
         {devotionalVideos ? (
           <DevotionVideo devotionVideo={devotionalVideos[0]} />
         ) : (
@@ -115,10 +114,6 @@ const PricingPage = () => {
           {disablePagination ? "Hết" : " Xem thêm"}
         </Button>
       </Stack>
-
-      {devotionalVideos?.map((i) => (
-        <p>{i.title}</p>
-      ))}
     </Container>
   );
 };
